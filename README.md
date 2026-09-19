@@ -110,5 +110,5 @@ To run this portfolio locally on your computer:
 ---
 
 <div align="center">
-  <sub>Built with ❤️ by <b>Lokesh A</b> • Network Engineer</sub>
+  <sub>Built by <b>Lokesh A</b> • Network Engineer</sub>
 </div>
