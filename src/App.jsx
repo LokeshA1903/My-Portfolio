@@ -1,11 +1,11 @@
 import React from 'react';
 import Navbar from './components/Navbar';
 import TerminalHero from './components/TerminalHero';
-import StatsBar from './components/StatsBar';
 import Certifications from './components/Certifications';
 import SkillsMatrix from './components/SkillsMatrix';
 import ProjectsSection from './components/ProjectsSection';
 import ExperienceTimeline from './components/ExperienceTimeline';
+import StatsBar from './components/StatsBar';
 import ContactSection from './components/ContactSection';
 import Footer from './components/Footer';
 
@@ -15,11 +15,11 @@ export default function App() {
       <Navbar />
       <main>
         <TerminalHero />
-        <StatsBar />
         <Certifications />
         <SkillsMatrix />
         <ProjectsSection />
         <ExperienceTimeline />
+        <StatsBar />
         <ContactSection />
       </main>
       <Footer />
