@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Shield, Terminal, Download, Menu, X, Wifi } from 'lucide-react';
+import { Shield, Download, Menu, X } from 'lucide-react';
 import { personalInfo } from '../data/portfolioData';
 
 export default function Navbar() {
@@ -38,15 +38,8 @@ export default function Navbar() {
               <Shield className="w-5 h-5 animate-pulse" />
             </div>
             <div>
-              <div className="font-mono text-sm font-bold text-slate-100 flex items-center gap-2">
-                <span>LOKESH A</span>
-                <span className="text-xs px-1.5 py-0.5 rounded bg-cyan-950 text-cyan-400 border border-cyan-800/80 font-mono">
-                  NET-ENG
-                </span>
-              </div>
-              <div className="flex items-center gap-1.5 text-[10px] font-mono text-emerald-400">
-                <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping" />
-                <span>UPTIME {personalInfo.uptime}</span>
+              <div className="font-mono text-base font-bold text-slate-100 tracking-wider">
+                LOKESH A
               </div>
             </div>
           </a>
