@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Shield, Download, Menu, X } from 'lucide-react';
+import { Shield, ExternalLink, Menu, X } from 'lucide-react';
 import { personalInfo } from '../data/portfolioData';
 
 export default function Navbar() {
@@ -63,12 +63,11 @@ export default function Navbar() {
           <div className="hidden sm:flex items-center gap-3">
             <a
               href={personalInfo.resumePath}
-              download="Lokesh_A_Network_Engineer_CV.pdf"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-2 px-4 py-2 rounded-lg bg-cyan-500/10 text-cyan-300 border border-cyan-500/30 hover:bg-cyan-500/20 hover:border-cyan-400 hover:shadow-[0_0_20px_rgba(0,242,254,0.3)] transition-all font-mono text-xs font-semibold"
             >
-              <Download className="w-3.5 h-3.5" />
+              <ExternalLink className="w-3.5 h-3.5" />
               <span>Resume PDF</span>
             </a>
           </div>
@@ -100,11 +99,12 @@ export default function Navbar() {
           ))}
           <a
             href={personalInfo.resumePath}
-            download="Lokesh_A_Network_Engineer_CV.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
             className="flex items-center justify-center gap-2 w-full py-2.5 mt-4 rounded-lg bg-cyan-500/20 text-cyan-300 border border-cyan-500/40 text-xs font-bold"
           >
-            <Download className="w-4 h-4" />
-            <span>Download CV</span>
+            <ExternalLink className="w-4 h-4" />
+            <span>View / Download Resume</span>
           </a>
         </div>
       )}

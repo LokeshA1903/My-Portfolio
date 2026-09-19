@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Mail, Phone, MapPin, Linkedin, Github, Send, ShieldCheck, CheckCircle2, Download, Terminal, AlertCircle } from 'lucide-react';
+import { Mail, Phone, MapPin, Linkedin, Github, Send, ShieldCheck, CheckCircle2, ExternalLink, Terminal, AlertCircle } from 'lucide-react';
 import confetti from 'canvas-confetti';
 import { personalInfo } from '../data/portfolioData';
 
@@ -143,11 +143,12 @@ export default function ContactSection() {
             {/* Download CV CTA */}
             <a
               href={personalInfo.resumePath}
-              download="Lokesh_A_Network_Engineer_CV.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
               className="flex items-center justify-center gap-2 w-full py-3.5 rounded-xl bg-gradient-to-r from-cyan-500 to-emerald-400 text-slate-950 font-mono font-extrabold text-xs hover:shadow-[0_0_25px_rgba(0,242,254,0.4)] transition-all"
             >
-              <Download className="w-4 h-4" />
-              <span>DOWNLOAD OFFICIAL CV (PDF)</span>
+              <ExternalLink className="w-4 h-4" />
+              <span>VIEW / DOWNLOAD OFFICIAL CV</span>
             </a>
 
           </div>

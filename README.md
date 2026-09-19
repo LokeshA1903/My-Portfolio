@@ -10,7 +10,7 @@
 
 A modern, high-performance, interactive portfolio web application built for **Lokesh A** (Network Engineer with 2+ years of enterprise infrastructure experience). Features an interactive CLI terminal console, searchable technical skills matrix, architectural project modals, and a direct Gmail inbox contact relay.
 
-[**Explore Live Demo**](#-local-installation--setup) • [**View Resume**](public/Lokesh_CV.pdf) • [**Contact Me**](#-contact--connect)
+[**Explore Live Demo**](#-local-installation--setup) • [**View Resume**](https://drive.google.com/file/d/1PY8L0xPRzFIuX-nQBHKGGz-5278DkoHt/view?usp=sharing) • [**Contact Me**](#-contact--connect)
 
 </div>
 

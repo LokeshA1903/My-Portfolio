@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Terminal, Shield, ArrowRight, CornerDownLeft, Download } from 'lucide-react';
+import { Terminal, Shield, ArrowRight, CornerDownLeft, ExternalLink } from 'lucide-react';
 import { personalInfo } from '../data/portfolioData';
 
 export default function TerminalHero() {
@@ -171,11 +171,12 @@ export default function TerminalHero() {
 
               <a
                 href={personalInfo.resumePath}
-                download="Lokesh_A_Network_Engineer_CV.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-slate-900 text-slate-200 border border-slate-700 font-mono text-xs hover:border-cyan-400 hover:text-cyan-300 transition-all"
               >
-                <Download className="w-4 h-4 text-cyan-400" />
-                <span>Download Resume</span>
+                <ExternalLink className="w-4 h-4 text-cyan-400" />
+                <span>View / Download Resume</span>
               </a>
             </div>
           </div>

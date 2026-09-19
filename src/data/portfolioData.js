@@ -6,7 +6,7 @@ export const personalInfo = {
   email: "lokesha5004@gmail.com",
   linkedin: "https://linkedin.com/in/lokesh-a-598819339",
   github: "https://github.com/LokeshA1903",
-  resumePath: "/Lokesh_CV.pdf",
+  resumePath: "https://drive.google.com/file/d/1PY8L0xPRzFIuX-nQBHKGGz-5278DkoHt/view?usp=sharing",
   status: "ACTIVE_MONITORING // AVAILABLE FOR OPPORTUNITIES",
   uptime: "99.9%",
   summary: `Network Engineer with 2+ years of hands-on experience in enterprise network infrastructure, network routing & switching, and systems administration. Skilled in FortiGate firewall administration, firewall policy management, NAT, SSL-VPN, IPsec VPN, SD-WAN, SD-WAN rules, VLANs, D-Link switching, LAN/WAN troubleshooting, and Windows/Linux administration. Experienced in network monitoring, incident troubleshooting, SLA-based technical support, and managing Active Directory environments.`
