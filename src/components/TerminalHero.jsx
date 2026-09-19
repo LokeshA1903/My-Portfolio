@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Terminal, Shield, ArrowRight, CornerDownLeft, Sparkles, CheckCircle2, Download } from 'lucide-react';
+import { Terminal, Shield, ArrowRight, CornerDownLeft, Download } from 'lucide-react';
 import { personalInfo } from '../data/portfolioData';
 
 export default function TerminalHero() {
@@ -13,7 +13,7 @@ export default function TerminalHero() {
         'Experience: 2+ Years Enterprise Network Infrastructure',
         'Specialization: FortiGate Firewall | SD-WAN | IPsec VPN | Windows & Linux Admin',
         'Location: Thoothukudi, Tamil Nadu, India',
-        'Type "help" to view available terminal commands.'
+        'Type "help" or click any shortcut button below to run commands.'
       ]
     }
   ]);
@@ -24,9 +24,8 @@ export default function TerminalHero() {
     terminalEndRef.current?.scrollIntoView({ behavior: 'smooth' });
   }, [commandHistory]);
 
-  const handleCommand = (e) => {
-    e.preventDefault();
-    const cleanCmd = inputVal.trim().toLowerCase();
+  const executeCommand = (cmdToRun) => {
+    const cleanCmd = cmdToRun.trim().toLowerCase();
     if (!cleanCmd) return;
 
     let outputLines = [];
@@ -39,7 +38,7 @@ export default function TerminalHero() {
           '  whoami         - View Lokesh profile summary',
           '  skills         - List technical skills & firewalls',
           '  certifications - Display Fortinet & CCNA credentials',
-          '  projects       - Show featured engineering deployments',
+          '  projects       - Show engineering projects',
           '  contact        - Get email, phone & social handles',
           '  ping           - Run network connection ping test',
           '  clear          - Clear terminal window'
@@ -104,8 +103,13 @@ export default function TerminalHero() {
         outputLines = [`Command not recognized: "${cleanCmd}". Type "help" for a list of available commands.`];
     }
 
-    setCommandHistory((prev) => [...prev, { cmd: inputVal, output: outputLines }]);
+    setCommandHistory((prev) => [...prev, { cmd: cleanCmd, output: outputLines }]);
     setInputVal('');
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    executeCommand(inputVal);
   };
 
   return (
@@ -211,7 +215,7 @@ export default function TerminalHero() {
                 ))}
 
                 {/* Input Prompt */}
-                <form onSubmit={handleCommand} className="flex items-center gap-2 pt-2">
+                <form onSubmit={handleSubmit} className="flex items-center gap-2 pt-2">
                   <span className="text-emerald-400 font-bold">lokesh@net-ops:~$</span>
                   <input
                     type="text"
@@ -220,25 +224,22 @@ export default function TerminalHero() {
                     placeholder="type 'help', 'skills', or 'ping'..."
                     className="flex-1 bg-transparent border-none outline-none text-cyan-300 font-mono text-xs placeholder-slate-600 focus:ring-0"
                   />
-                  <CornerDownLeft className="w-3.5 h-3.5 text-slate-600" />
+                  <button type="submit" aria-label="Run command" className="text-slate-500 hover:text-cyan-400">
+                    <CornerDownLeft className="w-3.5 h-3.5" />
+                  </button>
                 </form>
                 <div ref={terminalEndRef} />
               </div>
 
               {/* Terminal Quick Shortcuts */}
-              <div className="bg-[#091124] px-4 py-2 border-t border-slate-800/80 flex flex-wrap gap-2 text-[10px] text-slate-400 select-none">
-                <span>Quick Run:</span>
-                {['help', 'skills', 'certifications', 'projects', 'ping'].map((cmd) => (
+              <div className="bg-[#091124] px-4 py-2 border-t border-slate-800/80 flex flex-wrap gap-2 text-[10px] text-slate-400 select-none items-center">
+                <span className="text-slate-500">Quick Run:</span>
+                {['help', 'whoami', 'skills', 'certifications', 'projects', 'contact', 'ping', 'clear'].map((cmd) => (
                   <button
                     key={cmd}
                     type="button"
-                    onClick={() => {
-                      setInputVal(cmd);
-                      setTimeout(() => {
-                        setInputVal(cmd);
-                      }, 0);
-                    }}
-                    className="px-2 py-0.5 rounded bg-slate-800/80 hover:bg-cyan-950 hover:text-cyan-300 border border-slate-700/60 transition-colors"
+                    onClick={() => executeCommand(cmd)}
+                    className="px-2 py-1 rounded bg-slate-800/90 hover:bg-cyan-950 hover:text-cyan-300 hover:border-cyan-500/50 border border-slate-700/60 transition-all font-mono"
                   >
                     {cmd}
                   </button>
