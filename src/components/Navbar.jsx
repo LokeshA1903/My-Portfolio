@@ -14,6 +14,23 @@ export default function Navbar() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  const handleNavClick = (e, href) => {
+    e.preventDefault();
+    setMobileMenuOpen(false);
+
+    const targetElement = document.querySelector(href);
+    if (targetElement) {
+      const navOffset = 70;
+      const elementPosition = targetElement.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - navOffset;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
+      });
+    }
+  };
+
   const navLinks = [
     { name: 'About', href: '#about' },
     { name: 'Certifications', href: '#certifications' },
@@ -33,7 +50,7 @@ export default function Navbar() {
         <div className="flex items-center justify-between">
           
           {/* Logo Brand */}
-          <a href="#about" className="flex items-center gap-3 group">
+          <a href="#about" onClick={(e) => handleNavClick(e, '#about')} className="flex items-center gap-3 group">
             <div className="w-10 h-10 rounded-lg bg-cyan-950/80 border border-cyan-500/50 flex items-center justify-center text-cyan-400 group-hover:border-cyan-400 group-hover:shadow-[0_0_15px_rgba(0,242,254,0.4)] transition-all">
               <Shield className="w-5 h-5 animate-pulse" />
             </div>
@@ -50,6 +67,7 @@ export default function Navbar() {
               <a
                 key={link.name}
                 href={link.href}
+                onClick={(e) => handleNavClick(e, link.href)}
                 className="text-slate-300 hover:text-cyan-400 transition-colors py-1 relative group"
               >
                 <span className="text-cyan-600 group-hover:text-cyan-400 transition-colors">#</span>
@@ -90,7 +108,7 @@ export default function Navbar() {
             <a
               key={link.name}
               href={link.href}
-              onClick={() => setMobileMenuOpen(false)}
+              onClick={(e) => handleNavClick(e, link.href)}
               className="block py-2 text-slate-300 hover:text-cyan-400 border-b border-slate-900/80"
             >
               <span className="text-cyan-500 mr-2">&gt;</span>
