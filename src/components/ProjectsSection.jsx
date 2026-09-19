@@ -20,13 +20,13 @@ export default function ProjectsSection() {
         <div className="flex flex-col items-center text-center mb-16">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-950/80 border border-cyan-500/30 text-cyan-400 font-mono text-xs mb-3">
             <Layers className="w-3.5 h-3.5" />
-            <span>DEPLOYMENT PORTFOLIO</span>
+            <span>PORTFOLIO PROJECTS</span>
           </div>
           <h2 className="text-3xl sm:text-4xl font-extrabold text-white font-sans tracking-tight">
-            Featured Engineering Deployments
+            Projects
           </h2>
           <p className="text-slate-400 text-sm max-w-2xl mt-2 font-sans">
-            Real-world enterprise infrastructure projects, automated firmware update pipelines, private AI server setups, and high-availability clusters.
+            Real-world enterprise network infrastructure projects, automated firmware update pipelines, private AI server setups, and high-availability clusters.
           </p>
         </div>
 

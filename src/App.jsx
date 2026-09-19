@@ -5,7 +5,6 @@ import StatsBar from './components/StatsBar';
 import Certifications from './components/Certifications';
 import SkillsMatrix from './components/SkillsMatrix';
 import ProjectsSection from './components/ProjectsSection';
-import NetworkTopology from './components/NetworkTopology';
 import ExperienceTimeline from './components/ExperienceTimeline';
 import ContactSection from './components/ContactSection';
 import Footer from './components/Footer';
@@ -20,7 +19,6 @@ export default function App() {
         <Certifications />
         <SkillsMatrix />
         <ProjectsSection />
-        <NetworkTopology />
         <ExperienceTimeline />
         <ContactSection />
       </main>

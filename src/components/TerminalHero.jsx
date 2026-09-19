@@ -64,14 +64,14 @@ export default function TerminalHero() {
       case 'certifications':
         outputLines = [
           '📜 CREDENTIALS & CERTIFICATIONS:',
-          '1. Fortinet Certified Associate (FCA) in Cybersecurity [ID: 3684511744LA]',
-          '2. Fortinet Certified Fundamentals (FCF) in Cybersecurity [ID: 8542176905LA]',
+          '1. Fortinet Certified Associate (FCA) [ID: 3684511744LA]',
+          '2. Fortinet Certified Fundamentals (FCF) [ID: 8542176905LA]',
           '3. Free CCNA 200-301 (Network Chuck / Coursera) [Cert ID: u7399670]'
         ];
         break;
       case 'projects':
         outputLines = [
-          '🚀 FEATURED PROJECTS:',
+          '🚀 PROJECTS:',
           '1. FTP Server Deployment for Edge Firmware Management (~200 edge devices)',
           '2. On-Premises Private LLM Deployment (Ollama + Open WebUI)',
           '3. Windows Server & High Availability Cluster (300+ AD Accounts)'
@@ -134,7 +134,7 @@ export default function TerminalHero() {
             </div>
 
             <p className="text-slate-300 text-base leading-relaxed">
-              Specialized in enterprise network infrastructure, FortiGate firewall security rules, SD-WAN, SSL/IPsec VPNs, Active Directory administration, and deploying offline local AI infrastructure.
+              Specialized in enterprise network infrastructure, FortiGate firewall rules, SD-WAN, SSL/IPsec VPNs, Active Directory administration, and local server deployments.
             </p>
 
             {/* Quick Action Badges */}
@@ -187,7 +187,7 @@ export default function TerminalHero() {
                 </div>
                 <div className="text-slate-400 text-[11px] flex items-center gap-1.5">
                   <Terminal className="w-3.5 h-3.5 text-cyan-400" />
-                  <span>lokesh@sec-ops:~</span>
+                  <span>lokesh@net-ops:~</span>
                 </div>
                 <div className="text-[10px] text-cyan-400/70">bash</div>
               </div>
@@ -197,7 +197,7 @@ export default function TerminalHero() {
                 {commandHistory.map((item, index) => (
                   <div key={index} className="space-y-1">
                     <div className="flex items-center gap-2 text-cyan-400">
-                      <span className="text-emerald-400">lokesh@sec-ops:~$</span>
+                      <span className="text-emerald-400">lokesh@net-ops:~$</span>
                       <span className="text-slate-100 font-semibold">{item.cmd}</span>
                     </div>
                     <div className="pl-4 space-y-0.5 text-slate-300">
@@ -212,7 +212,7 @@ export default function TerminalHero() {
 
                 {/* Input Prompt */}
                 <form onSubmit={handleCommand} className="flex items-center gap-2 pt-2">
-                  <span className="text-emerald-400 font-bold">lokesh@sec-ops:~$</span>
+                  <span className="text-emerald-400 font-bold">lokesh@net-ops:~$</span>
                   <input
                     type="text"
                     value={inputVal}
@@ -235,7 +235,6 @@ export default function TerminalHero() {
                     onClick={() => {
                       setInputVal(cmd);
                       setTimeout(() => {
-                        const fakeEvent = { preventDefault: () => {} };
                         setInputVal(cmd);
                       }, 0);
                     }}

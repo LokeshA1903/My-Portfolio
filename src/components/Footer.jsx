@@ -21,7 +21,7 @@ export default function Footer() {
               <span className="text-white font-bold">{personalInfo.name}</span>
               <span className="text-cyan-500 ml-2">[{personalInfo.title}]</span>
               <p className="text-[10px] text-slate-500 font-sans mt-0.5">
-                © {new Date().getFullYear()} All rights reserved. Built with React & Cyber Security Aesthetic.
+                © {new Date().getFullYear()} All rights reserved. Built with React & Network Engineer Theme.
               </p>
             </div>
           </div>
@@ -32,7 +32,7 @@ export default function Footer() {
             <a href="#certifications" className="hover:text-cyan-400 transition-colors">#Certifications</a>
             <a href="#skills" className="hover:text-cyan-400 transition-colors">#Skills</a>
             <a href="#projects" className="hover:text-cyan-400 transition-colors">#Projects</a>
-            <a href="#topology" className="hover:text-cyan-400 transition-colors">#Topology</a>
+            <a href="#experience" className="hover:text-cyan-400 transition-colors">#Experience</a>
             <a href="#contact" className="hover:text-cyan-400 transition-colors">#Contact</a>
           </div>
 

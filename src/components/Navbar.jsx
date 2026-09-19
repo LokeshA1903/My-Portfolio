@@ -19,7 +19,6 @@ export default function Navbar() {
     { name: 'Certifications', href: '#certifications' },
     { name: 'Skills', href: '#skills' },
     { name: 'Projects', href: '#projects' },
-    { name: 'Topology', href: '#topology' },
     { name: 'Experience', href: '#experience' },
     { name: 'Contact', href: '#contact' },
   ];
@@ -42,7 +41,7 @@ export default function Navbar() {
               <div className="font-mono text-sm font-bold text-slate-100 flex items-center gap-2">
                 <span>LOKESH A</span>
                 <span className="text-xs px-1.5 py-0.5 rounded bg-cyan-950 text-cyan-400 border border-cyan-800/80 font-mono">
-                  SEC-OPS
+                  NET-ENG
                 </span>
               </div>
               <div className="flex items-center gap-1.5 text-[10px] font-mono text-emerald-400">
