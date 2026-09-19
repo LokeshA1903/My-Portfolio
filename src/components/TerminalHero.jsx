@@ -18,10 +18,13 @@ export default function TerminalHero() {
     }
   ]);
 
-  const terminalEndRef = useRef(null);
+  const terminalBodyRef = useRef(null);
 
+  // Scroll ONLY inside the terminal window without scrolling the web page
   useEffect(() => {
-    terminalEndRef.current?.scrollIntoView({ behavior: 'smooth' });
+    if (terminalBodyRef.current) {
+      terminalBodyRef.current.scrollTop = terminalBodyRef.current.scrollHeight;
+    }
   }, [commandHistory]);
 
   const executeCommand = (cmdToRun) => {
@@ -196,8 +199,8 @@ export default function TerminalHero() {
                 <div className="text-[10px] text-cyan-400/70">bash</div>
               </div>
 
-              {/* Terminal Body */}
-              <div className="p-4 h-[340px] overflow-y-auto space-y-3 bg-[#040711]/90">
+              {/* Terminal Body with internal scroll only */}
+              <div ref={terminalBodyRef} className="p-4 h-[340px] overflow-y-auto space-y-3 bg-[#040711]/90">
                 {commandHistory.map((item, index) => (
                   <div key={index} className="space-y-1">
                     <div className="flex items-center gap-2 text-cyan-400">
@@ -228,7 +231,6 @@ export default function TerminalHero() {
                     <CornerDownLeft className="w-3.5 h-3.5" />
                   </button>
                 </form>
-                <div ref={terminalEndRef} />
               </div>
 
               {/* Terminal Quick Shortcuts */}
