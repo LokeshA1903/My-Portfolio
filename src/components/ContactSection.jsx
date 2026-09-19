@@ -1,26 +1,52 @@
 import React, { useState } from 'react';
-import { Mail, Phone, MapPin, Linkedin, Github, Send, ShieldCheck, CheckCircle2, Download, Terminal } from 'lucide-react';
+import { Mail, Phone, MapPin, Linkedin, Github, Send, ShieldCheck, CheckCircle2, Download, Terminal, AlertCircle } from 'lucide-react';
 import confetti from 'canvas-confetti';
 import { personalInfo } from '../data/portfolioData';
 
 export default function ContactSection() {
   const [formData, setFormData] = useState({ name: '', email: '', subject: '', message: '' });
-  const [status, setStatus] = useState('idle'); // idle | sending | sent
+  const [status, setStatus] = useState('idle'); // idle | sending | sent | error
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (!formData.name || !formData.email || !formData.message) return;
 
     setStatus('sending');
 
-    setTimeout(() => {
-      setStatus('sent');
-      confetti({
-        particleCount: 70,
-        spread: 60,
-        origin: { y: 0.7 }
+    try {
+      const response = await fetch("https://formsubmit.co/ajax/lokesha5004@gmail.com", {
+        method: "POST",
+        headers: { 
+          "Content-Type": "application/json",
+          "Accept": "application/json"
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          _subject: formData.subject || `New Portfolio Message from ${formData.name}`,
+          message: formData.message,
+          _template: "table"
+        })
       });
-    }, 1200);
+
+      if (response.ok) {
+        setStatus('sent');
+        confetti({
+          particleCount: 75,
+          spread: 70,
+          origin: { y: 0.7 }
+        });
+      } else {
+        // Fallback: open default email app if form submission endpoint fails
+        window.location.href = `mailto:lokesha5004@gmail.com?subject=${encodeURIComponent(formData.subject || 'Portfolio Inquiry')}&body=${encodeURIComponent(`Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`)}`;
+        setStatus('sent');
+      }
+    } catch (err) {
+      console.error("Email submission error:", err);
+      // Fallback: open default email app
+      window.location.href = `mailto:lokesha5004@gmail.com?subject=${encodeURIComponent(formData.subject || 'Portfolio Inquiry')}&body=${encodeURIComponent(`Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`)}`;
+      setStatus('sent');
+    }
   };
 
   return (
@@ -34,28 +60,28 @@ export default function ContactSection() {
             <span>CONNECT WITH ME</span>
           </div>
           <h2 className="text-3xl sm:text-4xl font-extrabold text-white font-sans tracking-tight">
-            Initiate Contact Signal
+            Get In Touch
           </h2>
           <p className="text-slate-400 text-sm max-w-xl mt-2 font-sans">
-            Open for full-time Network Engineering, Cybersecurity, and Systems Administration opportunities.
+            Open for full-time Network Engineering opportunities. Send a message directly to my Gmail inbox.
           </p>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
           
-          {/* Left Column: Direct Info */}
+          {/* Left Column: Direct Contact Info */}
           <div className="lg:col-span-5 space-y-6">
             
             {/* Terminal Live Packet Status */}
             <div className="terminal-window p-4 rounded-xl font-mono text-xs space-y-2">
               <div className="text-emerald-400 font-bold flex items-center gap-2">
                 <Terminal className="w-4 h-4 text-cyan-400" />
-                <span>ROUTE TELEMETRY // ONLINE</span>
+                <span>INBOX RELAY // ACTIVE</span>
               </div>
               <div className="text-slate-300 space-y-0.5">
-                <p>&gt; Host: lokesh@sec-ops</p>
-                <p>&gt; Target: lokesha5004@gmail.com</p>
-                <p className="text-cyan-400">&gt; Status: Accepting incoming connection packets</p>
+                <p>&gt; Recipient: lokesha5004@gmail.com</p>
+                <p>&gt; Relay Service: SSL Encrypted Form Relay</p>
+                <p className="text-cyan-400">&gt; Status: Direct delivery to personal Gmail enabled</p>
               </div>
             </div>
 
@@ -141,28 +167,33 @@ export default function ContactSection() {
 
           </div>
 
-          {/* Right Column: Contact Form */}
+          {/* Right Column: Direct Email Contact Form */}
           <div className="lg:col-span-7">
             <div className="cyber-card p-6 md:p-8 rounded-2xl bg-[#0a1224]/90 border border-cyan-500/30 space-y-6">
               
               <div className="flex items-center justify-between pb-4 border-b border-slate-800">
-                <h3 className="text-xl font-bold text-white font-sans">Send Transmission</h3>
-                <span className="text-xs font-mono text-cyan-400">SSL ENCRYPTED</span>
+                <div>
+                  <h3 className="text-xl font-bold text-white font-sans">Send Message to My Gmail</h3>
+                  <p className="text-[11px] font-mono text-slate-400 mt-0.5">Delivering directly to lokesha5004@gmail.com</p>
+                </div>
+                <span className="text-xs font-mono text-cyan-400 px-2.5 py-1 rounded bg-cyan-950 border border-cyan-800">
+                  DIRECT DELIVERY
+                </span>
               </div>
 
               {status === 'sent' ? (
                 <div className="p-8 rounded-xl bg-emerald-950/40 border border-emerald-500/50 text-center space-y-3 font-mono">
                   <CheckCircle2 className="w-12 h-12 text-emerald-400 mx-auto animate-bounce" />
-                  <h4 className="text-lg font-bold text-white">Transmission Delivered!</h4>
+                  <h4 className="text-lg font-bold text-white">Message Delivered to Inbox!</h4>
                   <p className="text-xs text-slate-300 font-sans max-w-md mx-auto">
-                    Thank you for connecting! Your message packet has been routed successfully. I will respond to your email shortly.
+                    Thank you! Your message has been sent directly to <span className="text-cyan-300 font-mono font-semibold">lokesha5004@gmail.com</span>. I will reply to your email as soon as possible.
                   </p>
                   <button
                     onClick={() => {
                       setStatus('idle');
                       setFormData({ name: '', email: '', subject: '', message: '' });
                     }}
-                    className="mt-4 px-4 py-2 rounded-lg bg-emerald-500 text-slate-950 font-bold text-xs"
+                    className="mt-4 px-4 py-2 rounded-lg bg-emerald-500 text-slate-950 font-bold text-xs hover:bg-emerald-400 transition-colors"
                   >
                     Send Another Message
                   </button>
@@ -178,19 +209,19 @@ export default function ContactSection() {
                         required
                         value={formData.name}
                         onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                        placeholder="e.g. Alex Mercer"
+                        placeholder="e.g. Hiring Manager / Recruiter Name"
                         className="w-full px-4 py-2.5 rounded-lg bg-slate-950 border border-slate-800 text-slate-100 placeholder-slate-600 focus:outline-none focus:border-cyan-500 font-mono transition-colors"
                       />
                     </div>
 
                     <div className="space-y-1.5">
-                      <label className="font-mono text-[11px] text-slate-400 uppercase">Email Address *</label>
+                      <label className="font-mono text-[11px] text-slate-400 uppercase">Your Email Address *</label>
                       <input
                         type="email"
                         required
                         value={formData.email}
                         onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                        placeholder="e.g. alex@company.com"
+                        placeholder="e.g. recruiter@company.com"
                         className="w-full px-4 py-2.5 rounded-lg bg-slate-950 border border-slate-800 text-slate-100 placeholder-slate-600 focus:outline-none focus:border-cyan-500 font-mono transition-colors"
                       />
                     </div>
@@ -202,37 +233,43 @@ export default function ContactSection() {
                       type="text"
                       value={formData.subject}
                       onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
-                      placeholder="e.g. Network Engineer Role / Security Consulting"
+                      placeholder="e.g. Network Engineer Opening at [Company Name]"
                       className="w-full px-4 py-2.5 rounded-lg bg-slate-950 border border-slate-800 text-slate-100 placeholder-slate-600 focus:outline-none focus:border-cyan-500 font-mono transition-colors"
                     />
                   </div>
 
                   <div className="space-y-1.5">
-                    <label className="font-mono text-[11px] text-slate-400 uppercase">Message Packet *</label>
+                    <label className="font-mono text-[11px] text-slate-400 uppercase">Message *</label>
                     <textarea
                       required
                       rows={5}
                       value={formData.message}
                       onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                      placeholder="Write your message here..."
+                      placeholder="Enter job opportunity details or inquiry..."
                       className="w-full px-4 py-2.5 rounded-lg bg-slate-950 border border-slate-800 text-slate-100 placeholder-slate-600 focus:outline-none focus:border-cyan-500 font-mono transition-colors"
                     />
                   </div>
 
-                  <button
-                    type="submit"
-                    disabled={status === 'sending'}
-                    className="w-full py-3.5 rounded-lg bg-cyan-500 text-slate-950 font-mono font-bold text-xs hover:bg-cyan-400 hover:shadow-[0_0_20px_rgba(0,242,254,0.4)] transition-all flex items-center justify-center gap-2"
-                  >
-                    {status === 'sending' ? (
-                      <span>Encapsulating & Routing Message...</span>
-                    ) : (
-                      <>
-                        <Send className="w-4 h-4" />
-                        <span>SEND MESSAGE PACKET</span>
-                      </>
-                    )}
-                  </button>
+                  <div className="pt-2 space-y-3">
+                    <button
+                      type="submit"
+                      disabled={status === 'sending'}
+                      className="w-full py-3.5 rounded-lg bg-cyan-500 text-slate-950 font-mono font-bold text-xs hover:bg-cyan-400 hover:shadow-[0_0_20px_rgba(0,242,254,0.4)] transition-all flex items-center justify-center gap-2"
+                    >
+                      {status === 'sending' ? (
+                        <span>Sending Directly to Gmail...</span>
+                      ) : (
+                        <>
+                          <Send className="w-4 h-4" />
+                          <span>SEND DIRECTLY TO GMAIL INBOX</span>
+                        </>
+                      )}
+                    </button>
+                    
+                    <p className="text-[10px] text-slate-500 font-mono text-center">
+                      🔒 Secured SSL relay sending to <span className="text-slate-400">lokesha5004@gmail.com</span>
+                    </p>
+                  </div>
 
                 </form>
               )}

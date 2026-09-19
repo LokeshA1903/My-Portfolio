@@ -86,8 +86,7 @@ export const skillCategories = [
       { name: "D-Link Switches & VLAN Trunking", level: 90 },
       { name: "Subnetting & IP Addressing", level: 95 },
       { name: "Network Troubleshooting & SLA Support", level: 94 },
-      { name: "AWS Cloud Networking (Learning)", level: 70 },
-      { name: "FTP / OpenSSL Encryption", level: 88 }
+      { name: "AWS Cloud Networking (Learning)", level: 70 }
     ]
   }
 ];
