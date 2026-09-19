@@ -70,7 +70,6 @@ export default function Navbar() {
                 onClick={(e) => handleNavClick(e, link.href)}
                 className="text-slate-300 hover:text-cyan-400 transition-colors py-1 relative group"
               >
-                <span className="text-cyan-600 group-hover:text-cyan-400 transition-colors">#</span>
                 {link.name}
                 <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-cyan-400 group-hover:w-full transition-all duration-300" />
               </a>

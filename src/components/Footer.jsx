@@ -28,12 +28,12 @@ export default function Footer() {
 
           {/* Center Links */}
           <div className="flex flex-wrap justify-center gap-6 text-slate-400">
-            <a href="#about" className="hover:text-cyan-400 transition-colors">#About</a>
-            <a href="#certifications" className="hover:text-cyan-400 transition-colors">#Certifications</a>
-            <a href="#skills" className="hover:text-cyan-400 transition-colors">#Skills</a>
-            <a href="#projects" className="hover:text-cyan-400 transition-colors">#Projects</a>
-            <a href="#experience" className="hover:text-cyan-400 transition-colors">#Experience</a>
-            <a href="#contact" className="hover:text-cyan-400 transition-colors">#Contact</a>
+            <a href="#about" className="hover:text-cyan-400 transition-colors">About</a>
+            <a href="#certifications" className="hover:text-cyan-400 transition-colors">Certifications</a>
+            <a href="#skills" className="hover:text-cyan-400 transition-colors">Skills</a>
+            <a href="#projects" className="hover:text-cyan-400 transition-colors">Projects</a>
+            <a href="#experience" className="hover:text-cyan-400 transition-colors">Experience</a>
+            <a href="#contact" className="hover:text-cyan-400 transition-colors">Contact</a>
           </div>
 
           {/* Right Scroll Top */}
