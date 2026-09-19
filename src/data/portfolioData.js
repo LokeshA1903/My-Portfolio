@@ -4,7 +4,6 @@ export const personalInfo = {
   tagline: "Enterprise Network Infrastructure • FortiGate Firewall • Systems Admin • Local AI",
   location: "Thoothukudi, Tamil Nadu, India",
   email: "lokesha5004@gmail.com",
-  phone: "+91-8220800445",
   linkedin: "https://linkedin.com/in/lokesh-a-598819339",
   github: "https://github.com/LokeshA1903",
   resumePath: "/Lokesh_CV.pdf",

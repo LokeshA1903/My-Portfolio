@@ -105,7 +105,6 @@ To run this portfolio locally on your computer:
 * **Email**: [lokesha5004@gmail.com](mailto:lokesha5004@gmail.com)
 * **LinkedIn**: [linkedin.com/in/lokesh-a-598819339](https://linkedin.com/in/lokesh-a-598819339)
 * **GitHub**: [github.com/LokeshA1903](https://github.com/LokeshA1903)
-* **Phone**: +91-8220800445
 * **Location**: Thoothukudi, Tamil Nadu, India
 
 ---

@@ -103,21 +103,6 @@ export default function ContactSection() {
                 </div>
               </a>
 
-              <a
-                href={`tel:${personalInfo.phone}`}
-                className="cyber-card p-4 rounded-xl bg-slate-900/60 border border-slate-800 flex items-center gap-4 group hover:border-cyan-500/50"
-              >
-                <div className="p-3 rounded-lg bg-emerald-950 text-emerald-400 border border-emerald-800/80 group-hover:scale-110 transition-transform">
-                  <Phone className="w-5 h-5" />
-                </div>
-                <div>
-                  <div className="text-[11px] font-mono text-slate-400 uppercase">Phone & WhatsApp</div>
-                  <div className="text-sm font-bold text-white group-hover:text-emerald-300 font-mono">
-                    {personalInfo.phone}
-                  </div>
-                </div>
-              </a>
-
               <div className="cyber-card p-4 rounded-xl bg-slate-900/60 border border-slate-800 flex items-center gap-4">
                 <div className="p-3 rounded-lg bg-purple-950 text-purple-400 border border-purple-800/80">
                   <MapPin className="w-5 h-5" />

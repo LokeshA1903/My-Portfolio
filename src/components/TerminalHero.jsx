@@ -82,7 +82,6 @@ export default function TerminalHero() {
       case 'contact':
         outputLines = [
           `EMAIL:    ${personalInfo.email}`,
-          `PHONE:    ${personalInfo.phone}`,
           `LINKEDIN: ${personalInfo.linkedin}`,
           `GITHUB:   ${personalInfo.github}`
         ];
