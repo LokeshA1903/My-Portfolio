@@ -60,7 +60,7 @@ export default function ContactSection() {
             <span>CONNECT WITH ME</span>
           </div>
           <h2 className="text-3xl sm:text-4xl font-extrabold text-white font-sans tracking-tight">
-            Get In Touch
+            Let's Work Together
           </h2>
           <p className="text-slate-400 text-sm max-w-xl mt-2 font-sans">
             Open for full-time Network Engineering opportunities. Send a message directly to my Gmail inbox.
